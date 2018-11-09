@@ -4,7 +4,7 @@
 
 > Vue JS, Electron and Dexie App to track and prioritize various tasks
 
-![TaskForce Screenshot](https://i.imgur.com/Gp5lBqz.png "Taskforce")
+![TaskForce Screenshot](https://i.imgur.com/ke2r2hC.png "Taskforce")
 
 ## Project setup
 ```
