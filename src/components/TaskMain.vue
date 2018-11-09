@@ -65,30 +65,18 @@
         </bulma-modal>
 
         <section class="section tasks">
-            <div v-for="(task, index) in tasks" :key=index class="notification task">
-                <task-checkbox :status="task.completed" @click.native="updateTask(task, index)"></task-checkbox>
-                <div class="task-container">
-                    <span :class="{ strike: task.completed }" class="task-text">{{ task.text }}</span>
-                    <small><span class="moment" :class="{ strike : task.completed }">Default | {{ task.priority
-                        }} | {{ task.created_on | moment("from") }}</span></small>
-                </div>
-                <div class="task-meta-container">
-            <span class="icon delete-btn" @click="deleteTask(task, index)">
-                <i class="fa fa-trash"></i>
-            </span>
-                </div>
-            </div>
+            <task-item v-for="(task, index) in tasks" :key=index :task="task" :index="index"></task-item>
         </section>
     </div>
 </template>
 <script>
-import TaskCheckbox from "./TaskCheckbox.vue";
 import BulmaModal from "./BulmaModal.vue";
+import TaskItem from "./TaskItem.vue";
 export default {
   name: "task-main",
   components: {
-    TaskCheckbox,
-    BulmaModal
+    BulmaModal,
+    TaskItem
   },
   data() {
     return {
@@ -118,12 +106,6 @@ export default {
       ].level;
       this.newTask = "";
       this.isAddTaskModalActive = false;
-    },
-    deleteTask(task, index) {
-      this.$store.dispatch("deleteTask", index);
-    },
-    updateTask(task, index) {
-      this.$store.dispatch("updateTask", index);
     },
     open() {
       this.isAddTaskModalActive = true;
@@ -181,7 +163,4 @@ export default {
 
 .task-container small
   font-size: 11px
-
-.tf-tag:not(body)
-  font-size: 0.7rem
 </style>
