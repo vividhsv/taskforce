@@ -23,10 +23,12 @@ export default new Vuex.Store({
         id: 4,
         level: "Trivial"
       }
-    ]
+    ],
+    addTaskModalActive: false
   },
   getters: {
-    tasks: state => state.tasks
+    tasks: state => state.tasks,
+    addTaskModalActive: state => state.addTaskModalActive
   },
   mutations: {
     fetchTasks(state, tasks) {
@@ -40,6 +42,12 @@ export default new Vuex.Store({
     },
     updateTask(state, index) {
       state.tasks[index].completed = !state.tasks[index].completed;
+    },
+    openAddTaskModal(state) {
+      state.addTaskModalActive = true;
+    },
+    closeAddTaskModal(state) {
+      state.addTaskModalActive = false;
     }
   },
   actions: {
@@ -100,6 +108,12 @@ export default new Vuex.Store({
           console.log("Oops, failed to update task");
           console.log(err);
         });
+    },
+    openAddTaskModal({ commit }) {
+      commit("openAddTaskModal");
+    },
+    closeAddTaskModal({ commit }) {
+      commit("closeAddTaskModal");
     }
   }
 });

@@ -1,17 +1,27 @@
 <template>
-    <div class="notification task">
-        <task-checkbox :status="task.completed" @click.native="updateTask()"></task-checkbox>
-        <div class="task-container">
-            <span :class="{ strike: task.completed }" class="task-text">{{ task.text }}</span>
-            <small><span class="moment" :class="{ strike : task.completed }">Default | {{ task.priority
-                }} | {{ task.created_on | moment("from") }}</span></small>
-        </div>
-        <div class="task-meta-container">
-            <span class="icon delete-btn" @click="deleteTask()">
-                <i class="fa fa-trash"></i>
-            </span>
-        </div>
+  <div class="notification task">
+    <task-checkbox
+      :status="task.completed"
+      :priority="task.priority"
+      @click.native="updateTask();"
+    >
+    </task-checkbox>
+    <div class="task-container">
+      <span :class="{ strike: task.completed }" class="task-text">
+        {{ task.text }}
+      </span>
+      <small>
+        <span class="moment" :class="{ strike: task.completed }">
+          Default | {{ task.priority }} | {{ task.created_on | moment("from") }}
+        </span>
+      </small>
     </div>
+    <div class="task-meta-container">
+      <span class="icon delete-btn" @click="deleteTask();">
+        <i class="fa fa-trash"></i>
+      </span>
+    </div>
+  </div>
 </template>
 <script>
 import TaskCheckbox from "./TaskCheckbox.vue";
@@ -29,6 +39,4 @@ export default {
   }
 };
 </script>
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>

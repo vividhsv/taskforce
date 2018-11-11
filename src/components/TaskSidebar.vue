@@ -1,12 +1,12 @@
 <template>
-    <div class="sidebar">
-        <aside class="menu">
-                <ul class="menu-list">
-                <li><a>Dashboard</a></li>
-                <li><a>Activity</a></li>
-                </ul>
-        </aside>
-    </div>
+  <div class="sidebar">
+    <aside class="menu">
+      <ul class="menu-list">
+        <li><a>Dashboard</a></li>
+        <li><a>Activity</a></li>
+      </ul>
+    </aside>
+  </div>
 </template>
 ><script>
 export default {
@@ -14,6 +14,4 @@ export default {
 };
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>
