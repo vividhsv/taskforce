@@ -33,6 +33,9 @@ export default {
 }
 
 .uncheck:hover .far.fa-square {
-  display: none;
+  display: inline;
+}
+.uncheck .fas.fa-square {
+  color: #dbdbdb;
 }
 </style>
