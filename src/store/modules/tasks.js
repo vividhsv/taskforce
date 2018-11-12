@@ -1,34 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import { db } from "./db";
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+import { db } from "../../db";
+export default {
   state: {
-    tasks: [],
-    priority: [
-      {
-        id: 1,
-        level: "Critical"
-      },
-      {
-        id: 2,
-        level: "Major"
-      },
-      {
-        id: 3,
-        level: "Minor"
-      },
-      {
-        id: 4,
-        level: "Trivial"
-      }
-    ],
-    addTaskModalActive: false
+    tasks: []
   },
   getters: {
-    tasks: state => state.tasks,
-    addTaskModalActive: state => state.addTaskModalActive
+    tasks: state => state.tasks
   },
   mutations: {
     fetchTasks(state, tasks) {
@@ -42,12 +18,6 @@ export default new Vuex.Store({
     },
     updateTask(state, index) {
       state.tasks[index].completed = !state.tasks[index].completed;
-    },
-    openAddTaskModal(state) {
-      state.addTaskModalActive = true;
-    },
-    closeAddTaskModal(state) {
-      state.addTaskModalActive = false;
     }
   },
   actions: {
@@ -108,12 +78,6 @@ export default new Vuex.Store({
           console.log("Oops, failed to update task");
           console.log(err);
         });
-    },
-    openAddTaskModal({ commit }) {
-      commit("openAddTaskModal");
-    },
-    closeAddTaskModal({ commit }) {
-      commit("closeAddTaskModal");
     }
   }
-});
+};

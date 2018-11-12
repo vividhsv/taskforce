@@ -96,7 +96,7 @@ export default {
         projectID: this.selectedProject
       };
       this.$store.dispatch("addTask", task);
-      task.priority = this.$store.state.priority[
+      task.priority = this.$store.getters.priorities[
         this.selectedPriority - 1
       ].level;
       this.newTask = "";
@@ -105,6 +105,8 @@ export default {
   },
   created() {
     this.$store.dispatch("fetchTasks");
+    this.$store.dispatch("FETCH_PRIORITIES");
+    this.$store.dispatch("FETCH_PROJECTS");
   }
 };
 </script>
