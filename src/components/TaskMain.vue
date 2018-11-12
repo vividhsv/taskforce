@@ -95,16 +95,13 @@ export default {
         priorityId: this.selectedPriority,
         projectID: this.selectedProject
       };
-      this.$store.dispatch("addTask", task);
-      task.priority = this.$store.getters.priorities[
-        this.selectedPriority - 1
-      ].level;
+      this.$store.dispatch("ADD_TASK", task);
       this.newTask = "";
       this.$store.dispatch("closeAddTaskModal");
     }
   },
   created() {
-    this.$store.dispatch("fetchTasks");
+    this.$store.dispatch("FETCH_TASKS");
     this.$store.dispatch("FETCH_PRIORITIES");
     this.$store.dispatch("FETCH_PROJECTS");
   }

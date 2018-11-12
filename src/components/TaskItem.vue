@@ -3,7 +3,7 @@
     <task-checkbox
       :status="task.completed"
       :priority="task.priority"
-      @click.native="updateTask();"
+      @click.native="completeTask();"
     >
     </task-checkbox>
     <div class="task-container">
@@ -31,10 +31,10 @@ export default {
   components: { TaskCheckbox },
   methods: {
     deleteTask() {
-      this.$store.dispatch("deleteTask", this.index);
+      this.$store.dispatch("DELETE_TASK", this.index);
     },
-    updateTask() {
-      this.$store.dispatch("updateTask", this.index);
+    completeTask() {
+      this.$store.dispatch("COMPLETE_TASK", this.index);
     }
   }
 };
