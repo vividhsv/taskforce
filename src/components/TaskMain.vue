@@ -20,7 +20,9 @@
           <p class="control has-icons-left">
             <span class="select is-small">
               <select v-model.number="selectedProject">
-                <option value="1" selected>Default</option>
+                <option v-for="p in projects" :key="p.id" value="p.id">
+                  {{ p.name }}
+                </option>
               </select>
             </span>
             <span class="icon is-small is-left">
@@ -34,10 +36,9 @@
           <p class="control has-icons-left">
             <span class="select is-small">
               <select v-model.number="selectedPriority">
-                <option value="1">Critical</option>
-                <option value="2">Major</option>
-                <option value="3">Minor</option>
-                <option value="4" selected>Trivial</option>
+                <option v-for="p in priorities" :key="p.id" :value="p.id">
+                  {{ p.level }}
+                </option>
               </select>
             </span>
             <span class="icon is-small is-left">
@@ -84,6 +85,12 @@ export default {
     },
     isAddTaskModalActive() {
       return this.$store.getters.addTaskModalActive;
+    },
+    priorities() {
+      return this.$store.getters.priorities;
+    },
+    projects() {
+      return this.$store.getters.projects;
     }
   },
   methods: {
