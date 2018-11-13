@@ -4,6 +4,7 @@
     <task-sidebar></task-sidebar>
     <task-main-header></task-main-header>
     <task-main></task-main>
+    <task-main-input></task-main-input>
   </div>
 </template>
 <script>
@@ -11,6 +12,7 @@ import TaskSidebar from "../components/TaskSidebar";
 import TheSidebarHeader from "../components/TheSidebarHeader";
 import TaskMainHeader from "../components/TaskMainHeader";
 import TaskMain from "../components/TaskMain";
+import TaskMainInput from "../components/TaskMainInput";
 
 export default {
   name: "app-home",
@@ -18,7 +20,8 @@ export default {
     TaskSidebar,
     TheSidebarHeader,
     TaskMainHeader,
-    TaskMain
+    TaskMain,
+    TaskMainInput
   }
 };
 </script>

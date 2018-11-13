@@ -37,7 +37,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 240px 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 60px 1fr auto;
 }
 
 .sidebar-header {
@@ -67,6 +67,13 @@ body {
 .main {
   background-color: #fff;
   grid-column: 2;
-  grid-row: 2/4;
+  grid-row: 2/3;
+}
+
+.task-main-input {
+  background-color: #fff;
+  padding: 10px;
+  grid-column: 2;
+  grid-row: 3/4;
 }
 </style>
