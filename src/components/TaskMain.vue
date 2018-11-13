@@ -20,7 +20,7 @@
           <p class="control has-icons-left">
             <span class="select is-small">
               <select v-model.number="selectedProject">
-                <option v-for="p in projects" :key="p.id" value="p.id">
+                <option v-for="p in projects" :key="p.id" :value="p.id">
                   {{ p.name }}
                 </option>
               </select>
