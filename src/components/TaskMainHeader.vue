@@ -4,7 +4,9 @@
       <!-- Left side -->
       <div class="level-left">
         <div class="level-item">
-          <p class="subtitle is-5"><strong>Default</strong></p>
+          <p class="subtitle is-5">
+            <i class="fas fa-hashtag"></i> <strong> Default</strong>
+          </p>
         </div>
       </div>
 
