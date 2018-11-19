@@ -5,7 +5,7 @@
         <input
           class="input"
           type="text"
-          placeholder="Add Task Default Project..."
+          placeholder="Add Task to Default Project..."
           @keyup.enter="addTask"
           v-model="newTask"
         />
@@ -16,11 +16,11 @@
 <script>
 export default {
   name: "task-main-input",
+  props: ["projectId"],
   data() {
     return {
       newTask: "",
-      selectedPriority: 4,
-      selectedProject: 1
+      selectedPriority: 4
     };
   },
   methods: {
@@ -30,7 +30,7 @@ export default {
         text: this.newTask,
         completed: false,
         priorityId: this.selectedPriority,
-        projectID: this.selectedProject
+        projectId: parseInt(this.projectId)
       };
       this.$store.dispatch("ADD_TASK", task);
       this.newTask = "";

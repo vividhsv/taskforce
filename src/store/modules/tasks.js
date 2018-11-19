@@ -21,11 +21,24 @@ export default {
     }
   },
   actions: {
-    async FETCH_TASKS({ commit }) {
+    async FETCH_TASKS({ commit }, projectId) {
+      let tasks = await db.tasks
+        .where("projectId")
+        .equals(projectId)
+        .toArray();
+
+      await Promise.all(
+        tasks.map(async task => {
+          let priority = await db.priority.get(task.priorityId);
+          task.priority = priority.level;
+        })
+      );
+      commit("FETCH_TASKS", tasks);
+    },
+    async FETCH_ALL_TASKS({ commit }) {
       let tasks = await db.tasks
         .orderBy("created_on")
         .reverse()
-        .limit(20)
         .toArray();
 
       await Promise.all(

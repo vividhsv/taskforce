@@ -3,7 +3,7 @@ import Dexie from "dexie";
 export const db = new Dexie("taskforce");
 
 db.version(1).stores({
-  tasks: "id++,text,completed,priorityId,created_on",
+  tasks: "id++,text,completed,priorityId,projectId,created_on",
   priority: "id++,level",
   projects: "id++,name"
 });

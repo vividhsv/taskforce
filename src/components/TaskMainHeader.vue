@@ -5,7 +5,7 @@
       <div class="level-left">
         <div class="level-item">
           <p class="subtitle is-5">
-            <i class="fas fa-hashtag"></i> <strong> Default</strong>
+            <i class="fas fa-hashtag"></i> <strong> {{ project.name }} </strong>
           </p>
         </div>
       </div>
@@ -24,9 +24,19 @@
 <script>
 export default {
   name: "task-main-header",
+  props: ["projectId"],
   methods: {
     open() {
       this.$store.dispatch("openAddTaskModal");
+    }
+  },
+  computed: {
+    project() {
+      return (
+        this.$store.getters.projects.find(
+          e => e.id == parseInt(this.projectId)
+        ) || {}
+      );
     }
   }
 };

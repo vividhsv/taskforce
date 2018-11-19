@@ -16,6 +16,7 @@ export default {
   display: table-cell;
   vertical-align: middle;
   width: 6%;
+  padding-right: 12.8px;
 }
 
 .check:hover .far.fa-square,

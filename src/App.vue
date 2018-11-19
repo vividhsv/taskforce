@@ -37,7 +37,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 240px 1fr;
-  grid-template-rows: 60px 1fr auto;
+  grid-template-rows: 60px 1fr;
 }
 
 .sidebar-header {
@@ -51,14 +51,23 @@ body {
 .sidebar {
   background-color: #373d48;
   grid-column: 1;
-  grid-row: 2/4;
+  grid-row: 2/-1;
   padding: 18px;
+}
+
+.main-wrapper {
+  grid-column: 2;
+  grid-row: 1/-1;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr auto;
 }
 
 .main-header {
   background-color: #fff;
   padding: 18px;
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1/2;
   border-bottom: 1px solid #f2f2f2;
   -webkit-app-region: drag;
@@ -66,14 +75,14 @@ body {
 
 .main {
   background-color: #fff;
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 2/3;
 }
 
 .task-main-input {
   background-color: #fff;
   padding: 10px;
-  grid-column: 2;
-  grid-row: 3/4;
+  grid-column: 1;
+  grid-row: 3/-1;
 }
 </style>

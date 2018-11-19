@@ -14,7 +14,7 @@ export default {
   actions: {
     async FETCH_PROJECTS({ commit }) {
       let projects = await db.projects.toArray();
-      return commit("FETCH_PROJECTS", projects);
+      commit("FETCH_PROJECTS", projects);
     }
   }
 };

@@ -68,6 +68,7 @@ import BulmaModal from "./BulmaModal.vue";
 import TaskItem from "./TaskItem.vue";
 export default {
   name: "task-main",
+  props: ["projectId"],
   components: {
     BulmaModal,
     TaskItem
@@ -100,7 +101,7 @@ export default {
         text: this.newTask,
         completed: false,
         priorityId: this.selectedPriority,
-        projectID: this.selectedProject
+        projectId: parseInt(this.projectId)
       };
       this.$store.dispatch("ADD_TASK", task);
       this.newTask = "";
@@ -108,9 +109,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch("FETCH_TASKS");
-    this.$store.dispatch("FETCH_PRIORITIES");
-    this.$store.dispatch("FETCH_PROJECTS");
+    this.$store.dispatch("FETCH_TASKS", parseInt(this.projectId));
   }
 };
 </script>
